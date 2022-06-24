@@ -1,0 +1,24 @@
+{
+  "name": "action-monitor-der",
+  "files": ["dist"],
+  "version": "1.0.3",
+  "main": "./dist/action-monitor.umd.js",
+  "module": "./dist/action-monitor.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/action-monitor.mjs",
+      "require": "./dist/action-monitor.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3"
+  }
+}
