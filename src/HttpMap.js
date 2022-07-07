@@ -14,5 +14,11 @@ export default class HttpMap{
     this.clear()
     return this
   }
+  delete(key=undefined){
+    if(key!==undefined){
+      this.#httpMap.delete(key)
+    }
+    return this
+  }
   
 }

@@ -58,6 +58,7 @@ export default class MonitorHttp {
           data.endTime = time
           data.duration = time - data.startTime
           that.#notice(data)
+          that.#httpMap.delete(currentTarget)
         }
       }
       this.addEventListener('readystatechange', readystatechange)
