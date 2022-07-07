@@ -26,6 +26,7 @@ export default class MonitorHttp {
         method,
         url,
         startTime: dayjs().valueOf(),
+        headers:{}
       }
       that.#httpMap.set(this, data)
       return open.call(this, method, url, async)
@@ -35,8 +36,9 @@ export default class MonitorHttp {
   #interceptSetRequestHeader() {
     let that = this
     XMLHttpRequest.prototype.setRequestHeader = function (...arg) {
+      let [key,value] = arg
       let data = that.#httpMap.get(this)
-      data.headers = arg
+      data.headers[key] = value
       that.#httpMap.set(this, data)
       return setRequestHeader.call(this, ...arg)
     }
